@@ -3,7 +3,7 @@ import react, { reactCompilerPreset } from '@vitejs/plugin-react';
 import babel from '@rolldown/plugin-babel';
 
 // https://vite.dev/config/
-export default defineConfig({
-    base: '/bookshelf/',
+export default defineConfig(({ command, mode }) => ({
+    base: command === 'serve' && mode === 'development' ? '/' : '/bookshelf/',
     plugins: [react(), babel({ presets: [reactCompilerPreset()] })],
-});
+}));

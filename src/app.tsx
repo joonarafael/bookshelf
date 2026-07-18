@@ -2,7 +2,9 @@ import { useMemo, useState } from 'react';
 import type { ReactElement } from 'react';
 import { BOOKS } from './books';
 import { BookList } from './components/book-list';
+import { SearchBar } from './components/search-bar';
 import { SortControls } from './components/sort-controls';
+import { filterBooksBySearch } from './filter-books-by-search';
 import type { ReadFilter, SortDirection, SortField, TitleLanguage } from './sort-types';
 import { sortBooks } from './sort-books';
 import './app.css';
@@ -24,16 +26,17 @@ export const App = (): ReactElement => {
     const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
     const [titleLanguage, setTitleLanguage] = useState<TitleLanguage>('en');
     const [readFilter, setReadFilter] = useState<ReadFilter>('all');
+    const [searchQuery, setSearchQuery] = useState('');
 
     const books = useMemo(
         () =>
             sortBooks({
-                books: filterBooksByReadStatus(BOOKS, readFilter),
+                books: filterBooksBySearch(filterBooksByReadStatus(BOOKS, readFilter), searchQuery),
                 direction: sortDirection,
                 field: sortField,
                 titleLanguage,
             }),
-        [readFilter, sortField, sortDirection, titleLanguage],
+        [readFilter, searchQuery, sortField, sortDirection, titleLanguage],
     );
 
     return (
@@ -48,6 +51,11 @@ export const App = (): ReactElement => {
                     onFieldChange={setSortField}
                     onReadFilterChange={setReadFilter}
                     onTitleLanguageChange={setTitleLanguage}
+                />
+
+                <SearchBar
+                    query={searchQuery}
+                    onQueryChange={setSearchQuery}
                 />
             </header>
 
