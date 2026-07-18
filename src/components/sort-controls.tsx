@@ -1,6 +1,7 @@
-import { ArrowDown, ArrowUp } from 'lucide-react';
 import type { ReactElement } from 'react';
-import type { SortDirection, SortField, TitleLanguage } from '../sort-types';
+import type { ReadFilter, SortDirection, SortField, TitleLanguage } from '../sort-types';
+import { ReadFilterButton } from './read-filter-button';
+import { SortDirectionButton } from './sort-direction-button';
 import { SortFieldSelect } from './sort-field-select';
 
 interface SortControlsProps {
@@ -8,7 +9,9 @@ interface SortControlsProps {
     field: SortField;
     onDirectionChange: (direction: SortDirection) => void;
     onFieldChange: (field: SortField) => void;
+    onReadFilterChange: (filter: ReadFilter) => void;
     onTitleLanguageChange: (language: TitleLanguage) => void;
+    readFilter: ReadFilter;
     titleLanguage: TitleLanguage;
 }
 
@@ -17,44 +20,38 @@ export const SortControls = ({
     field,
     onDirectionChange,
     onFieldChange,
+    onReadFilterChange,
     onTitleLanguageChange,
+    readFilter,
     titleLanguage,
-}: SortControlsProps): ReactElement => {
-    const DirectionIcon = direction === 'asc' ? ArrowUp : ArrowDown;
+}: SortControlsProps): ReactElement => (
+    <div className='sort-controls'>
+        <SortFieldSelect
+            field={field}
+            onFieldChange={onFieldChange}
+        />
 
-    return (
-        <div className='sort-controls'>
-            <SortFieldSelect
-                field={field}
-                onFieldChange={onFieldChange}
-            />
+        <SortDirectionButton
+            direction={direction}
+            onDirectionChange={onDirectionChange}
+        />
 
-            <button
-                type='button'
-                className='sort-controls__direction'
-                aria-pressed={direction === 'desc'}
-                onClick={() => {
-                    onDirectionChange(direction === 'asc' ? 'desc' : 'asc');
-                }}
-            >
-                <DirectionIcon
-                    className='sort-controls__icon'
-                    aria-hidden='true'
-                />
-            </button>
+        <ReadFilterButton
+            readFilter={readFilter}
+            onReadFilterChange={onReadFilterChange}
+        />
 
-            <button
-                type='button'
-                className='sort-controls__language'
-                aria-label={titleLanguage === 'en' ? 'Show Finnish titles' : 'Show English titles'}
-                onClick={() => {
-                    onTitleLanguageChange(titleLanguage === 'en' ? 'fi' : 'en');
-                }}
-            >
-                {titleLanguage.toUpperCase()}
-            </button>
-        </div>
-    );
-};
+        <button
+            type='button'
+            className='sort-controls__language'
+            aria-label={titleLanguage === 'en' ? 'Show Finnish titles' : 'Show English titles'}
+            onClick={() => {
+                onTitleLanguageChange(titleLanguage === 'en' ? 'fi' : 'en');
+            }}
+        >
+            {titleLanguage.toUpperCase()}
+        </button>
+    </div>
+);
 
-export type { SortDirection, SortField, TitleLanguage } from '../sort-types';
+export type { ReadFilter, SortDirection, SortField, TitleLanguage } from '../sort-types';

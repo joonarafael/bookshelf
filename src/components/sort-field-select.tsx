@@ -1,3 +1,5 @@
+import { BookText, Calendar, User } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 import type { ReactElement } from 'react';
 import type { SortField } from '../sort-types';
 
@@ -8,35 +10,40 @@ interface SortFieldSelectProps {
 
 const SORT_FIELDS: SortField[] = ['title', 'author', 'published'];
 
-const SORT_FIELD_LABELS: Record<SortField, string> = {
-    author: 'Author',
-    published: 'Published',
-    title: 'Title',
+const SORT_FIELD_ICONS: Record<SortField, LucideIcon> = {
+    author: User,
+    published: Calendar,
+    title: BookText,
 };
 
-const isSortField = (value: string): value is SortField =>
-    value === 'title' || value === 'author' || value === 'published';
+const SORT_FIELD_LABELS: Record<SortField, string> = {
+    author: 'Sort by author',
+    published: 'Sort by published year',
+    title: 'Sort by title',
+};
 
-export const SortFieldSelect = ({ field, onFieldChange }: SortFieldSelectProps): ReactElement => (
-    <select
-        aria-label='Sort by'
-        className='sort-controls__field-select'
-        value={field}
-        onChange={(event) => {
-            const { value } = event.target;
+const cycleSortField = (field: SortField): SortField => {
+    const index = SORT_FIELDS.indexOf(field);
 
-            if (isSortField(value)) {
-                onFieldChange(value);
-            }
-        }}
-    >
-        {SORT_FIELDS.map((sortField) => (
-            <option
-                key={sortField}
-                value={sortField}
-            >
-                {SORT_FIELD_LABELS[sortField]}
-            </option>
-        ))}
-    </select>
-);
+    return SORT_FIELDS[(index + 1) % SORT_FIELDS.length] ?? 'title';
+};
+
+export const SortFieldSelect = ({ field, onFieldChange }: SortFieldSelectProps): ReactElement => {
+    const FieldIcon = SORT_FIELD_ICONS[field];
+
+    return (
+        <button
+            type='button'
+            className='sort-controls__field'
+            aria-label={SORT_FIELD_LABELS[field]}
+            onClick={() => {
+                onFieldChange(cycleSortField(field));
+            }}
+        >
+            <FieldIcon
+                className='sort-controls__icon'
+                aria-hidden='true'
+            />
+        </button>
+    );
+};
