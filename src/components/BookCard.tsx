@@ -1,13 +1,14 @@
 import { BookOpen, BookOpenCheck, Calendar, User } from 'lucide-react';
+import type { ReactElement } from 'react';
 import type { Book } from '../books';
-import type { TitleLanguage } from './SortControls';
+import type { TitleLanguage } from '../sortTypes';
 
 interface BookCardProps {
     book: Book;
     titleLanguage: TitleLanguage;
 }
 
-export function BookCard({ book, titleLanguage }: BookCardProps) {
+export const BookCard = ({ book, titleLanguage }: BookCardProps): ReactElement => {
     const StatusIcon = book.read ? BookOpenCheck : BookOpen;
     const title = titleLanguage === 'en' ? book.title_en : book.title_fi;
 
@@ -38,4 +39,4 @@ export function BookCard({ book, titleLanguage }: BookCardProps) {
             </dl>
         </article>
     );
-}
+};

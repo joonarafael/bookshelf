@@ -1,22 +1,25 @@
 import { useMemo, useState } from 'react';
+import type { ReactElement } from 'react';
 import { BOOKS } from './books';
 import { BookCard } from './components/BookCard';
-import {
-    SortControls,
-    type SortDirection,
-    type SortField,
-    type TitleLanguage,
-} from './components/SortControls';
+import { SortControls } from './components/SortControls';
+import type { SortDirection, SortField, TitleLanguage } from './sortTypes';
 import { sortBooks } from './sortBooks';
 import './App.css';
 
-function App() {
+export const App = (): ReactElement => {
     const [sortField, setSortField] = useState<SortField>('title');
     const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
     const [titleLanguage, setTitleLanguage] = useState<TitleLanguage>('en');
 
     const books = useMemo(
-        () => sortBooks(BOOKS, sortField, sortDirection, titleLanguage),
+        () =>
+            sortBooks({
+                books: BOOKS,
+                direction: sortDirection,
+                field: sortField,
+                titleLanguage,
+            }),
         [sortField, sortDirection, titleLanguage],
     );
 
@@ -24,11 +27,11 @@ function App() {
         <main className='bookshelf'>
             <header className='bookshelf__header'>
                 <SortControls
-                    field={sortField}
                     direction={sortDirection}
+                    field={sortField}
                     titleLanguage={titleLanguage}
-                    onFieldChange={setSortField}
                     onDirectionChange={setSortDirection}
+                    onFieldChange={setSortField}
                     onTitleLanguageChange={setTitleLanguage}
                 />
             </header>
@@ -45,6 +48,4 @@ function App() {
             </ul>
         </main>
     );
-}
-
-export default App;
+};

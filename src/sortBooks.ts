@@ -1,41 +1,51 @@
 import type { Book } from './books';
-import type { SortDirection, SortField, TitleLanguage } from './components/SortControls';
+import type { SortDirection, SortField, TitleLanguage } from './sortTypes';
 
-const comparePublished = (left: Book['published'], right: Book['published']) => {
-    const normalize = (value: Book['published']) =>
-        value === '-' ? Number.POSITIVE_INFINITY : value;
+interface SortBooksOptions {
+    books: Book[];
+    direction: SortDirection;
+    field: SortField;
+    titleLanguage: TitleLanguage;
+}
 
-    return normalize(left) - normalize(right);
-};
+interface CompareByFieldOptions {
+    field: SortField;
+    left: Book;
+    right: Book;
+    titleLanguage: TitleLanguage;
+}
 
-const getTitle = (book: Book, language: TitleLanguage) =>
+const SORT_EQUAL = 0;
+
+const normalizePublished = (value: Book['published']): number =>
+    value === '-' ? Number.POSITIVE_INFINITY : value;
+
+const comparePublished = (left: Book['published'], right: Book['published']): number =>
+    normalizePublished(left) - normalizePublished(right);
+
+const getTitle = (book: Book, language: TitleLanguage): string =>
     language === 'en' ? book.title_en : book.title_fi;
 
-export const sortBooks = (
-    books: Book[],
-    field: SortField,
-    direction: SortDirection,
-    titleLanguage: TitleLanguage,
-): Book[] => {
-    const sorted = [...books].sort((left, right) => {
-        let result = 0;
-
-        switch (field) {
-            case 'title':
-                result = getTitle(left, titleLanguage).localeCompare(
-                    getTitle(right, titleLanguage),
-                );
-                break;
-            case 'author':
-                result = left.author.localeCompare(right.author);
-                break;
-            case 'published':
-                result = comparePublished(left.published, right.published);
-                break;
+const compareByField = ({ field, left, right, titleLanguage }: CompareByFieldOptions): number => {
+    switch (field) {
+        case 'title': {
+            return getTitle(left, titleLanguage).localeCompare(getTitle(right, titleLanguage));
         }
+        case 'author': {
+            return left.author.localeCompare(right.author);
+        }
+        case 'published': {
+            return comparePublished(left.published, right.published);
+        }
+        default: {
+            return SORT_EQUAL;
+        }
+    }
+};
+
+export const sortBooks = ({ books, direction, field, titleLanguage }: SortBooksOptions): Book[] =>
+    books.toSorted((left, right) => {
+        const result = compareByField({ field, left, right, titleLanguage });
 
         return direction === 'asc' ? result : -result;
     });
-
-    return sorted;
-};
