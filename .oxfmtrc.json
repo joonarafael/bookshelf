@@ -1,0 +1,42 @@
+{
+    "arrowParens": "always",
+    "bracketSameLine": false,
+    "bracketSpacing": true,
+    "embeddedLanguageFormatting": "auto",
+    "endOfLine": "lf",
+    "htmlWhitespaceSensitivity": "css",
+    "ignorePatterns": ["node_modules"],
+    "insertFinalNewline": true,
+    "jsdoc": {
+        "addDefaultToDescription": true,
+        "bracketSpacing": true,
+        "capitalizeDescriptions": true,
+        "commentLineStrategy": "singleLine",
+        "descriptionTag": false,
+        "descriptionWithDot": true,
+        "keepUnparsableExampleIndent": false,
+        "lineWrappingStyle": "greedy",
+        "preferCodeFences": true,
+        "separateReturnsFromParam": true,
+        "separateTagGroups": true
+    },
+    "jsxSingleQuote": true,
+    "objectWrap": "preserve",
+    "overrides": [],
+    "printWidth": 100,
+    "proseWrap": "preserve", // must preserve, GitHub-specific markdown will otherwise break
+    "quoteProps": "consistent",
+    "semi": true,
+    "singleAttributePerLine": true,
+    "singleQuote": true,
+    "sortImports": false, // linter handles this
+    "sortPackageJson": {
+        "sortScripts": true
+    },
+    "sortTailwindcss": true,
+    "tabWidth": 4,
+    "trailingComma": "all",
+    "useTabs": false,
+    "vueIndentScriptAndStyle": false,
+    "wrapAttributes": "auto"
+}

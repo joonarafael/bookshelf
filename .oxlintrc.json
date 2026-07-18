@@ -1,8 +1,60 @@
 {
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
+    "categories": {
+        "correctness": "error",
+        "suspicious": "error",
+        "pedantic": "error",
+        "perf": "error",
+        "style": "error",
+        "restriction": "error",
+        "nursery": "error"
+    },
+    "ignorePatterns": ["node_modules", "dist"],
+    "options": {
+        "respectEslintDisableDirectives": false,
+        "typeAware": true,
+        "typeCheck": true
+    },
+    "overrides": [],
+    "plugins": [
+        "eslint",
+        "import",
+        "jest",
+        "jsdoc",
+        "jsx-a11y",
+        "nextjs",
+        "node",
+        "oxc",
+        "promise",
+        "react",
+        "react-perf",
+        "typescript",
+        "unicorn",
+        "vue"
+    ],
+    "rules": {
+        "curly": "error",
+        "func-style": ["error", "expression", { "allowArrowFunctions": true }],
+        "import/no-named-export": "off",
+        "import/no-unassigned-import": ["error", { "allow": ["**/*.css"] }],
+        "no-duplicate-imports": "off",
+        "no-ternary": "off",
+        "no-undef": "off",
+        "oxc/no-async-await": "off",
+        "prefer-arrow-callback": "error",
+        "react-perf/jsx-no-jsx-as-prop": "off",
+        "react-perf/jsx-no-new-array-as-prop": "off",
+        "react-perf/jsx-no-new-function-as-prop": "off",
+        "react-perf/jsx-no-new-object-as-prop": "off",
+        "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
+        "react/react-compiler": "off",
+        "react/react-in-jsx-scope": "off",
+        "sort-imports": "off",
+        "typescript/no-require-imports": "off",
+        "typescript/no-var-requires": "off",
+        "typescript/require-await": "off",
+        "unicorn/import-style": "off",
+        "unicorn/number-literal-case": "off",
+        "unicorn/prefer-module": "off",
+        "unicorn/prefer-ternary": "off"
+    }
 }
