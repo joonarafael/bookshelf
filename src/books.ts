@@ -319,7 +319,7 @@ export const BOOKS: Book[] = [
         title_en: 'The Idiot',
         title_fi: 'Idiootti',
     },
-    { author: '-', published: '-', read: true, title_en: 'The Bible', title_fi: 'Raamattu' },
+    { author: '-', published: '-', read: true, title_en: 'Bible', title_fi: 'Raamattu' },
     {
         author: 'John Steinbeck',
         published: 1939,
