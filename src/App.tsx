@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import type { ReactElement } from 'react';
 import { BOOKS } from './books';
-import { BookCard } from './components/BookCard';
+import { BookList } from './components/BookList';
 import { SortControls } from './components/SortControls';
 import type { SortDirection, SortField, TitleLanguage } from './sortTypes';
 import { sortBooks } from './sortBooks';
@@ -36,16 +36,10 @@ export const App = (): ReactElement => {
                 />
             </header>
 
-            <ul className='bookshelf__list'>
-                {books.map((book) => (
-                    <li key={`${book.title_en}-${book.author}-${book.published}`}>
-                        <BookCard
-                            book={book}
-                            titleLanguage={titleLanguage}
-                        />
-                    </li>
-                ))}
-            </ul>
+            <BookList
+                books={books}
+                titleLanguage={titleLanguage}
+            />
         </main>
     );
 };

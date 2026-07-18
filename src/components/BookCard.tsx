@@ -2,6 +2,7 @@ import { BookOpen, BookOpenCheck, Calendar, User } from 'lucide-react';
 import type { ReactElement } from 'react';
 import type { Book } from '../books';
 import type { TitleLanguage } from '../sortTypes';
+import { BookCardMetaRow } from './BookCardMetaRow';
 
 interface BookCardProps {
     book: Book;
@@ -11,6 +12,7 @@ interface BookCardProps {
 export const BookCard = ({ book, titleLanguage }: BookCardProps): ReactElement => {
     const StatusIcon = book.read ? BookOpenCheck : BookOpen;
     const title = titleLanguage === 'en' ? book.title_en : book.title_fi;
+    const published = book.published === '-' ? '—' : String(book.published);
 
     return (
         <article className='book-card'>
@@ -23,19 +25,14 @@ export const BookCard = ({ book, titleLanguage }: BookCardProps): ReactElement =
             </header>
 
             <dl className='book-card__meta'>
-                <div className='book-card__meta-row'>
-                    <dt>
-                        <User aria-hidden='true' />
-                    </dt>
-                    <dd>{book.author}</dd>
-                </div>
-
-                <div className='book-card__meta-row'>
-                    <dt>
-                        <Calendar aria-hidden='true' />
-                    </dt>
-                    <dd>{book.published === '-' ? '—' : book.published}</dd>
-                </div>
+                <BookCardMetaRow
+                    icon={User}
+                    value={book.author}
+                />
+                <BookCardMetaRow
+                    icon={Calendar}
+                    value={published}
+                />
             </dl>
         </article>
     );

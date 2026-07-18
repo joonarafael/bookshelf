@@ -1,3 +1,5 @@
+// oxlint-disable max-lines
+
 export interface Book {
     title_en: string;
     title_fi: string;

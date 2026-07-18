@@ -16,14 +16,6 @@
     },
     "overrides": [
         {
-            "files": ["src/main.tsx"],
-            "rules": { "jest/require-hook": "off" }
-        },
-        {
-            "files": ["src/books.ts"],
-            "rules": { "eslint/max-lines": "off" }
-        },
-        {
             "files": ["vite.config.ts"],
             "rules": { "import/no-default-export": "off" }
         }
@@ -31,7 +23,6 @@
     "plugins": [
         "eslint",
         "import",
-        "jest",
         "jsdoc",
         "jsx-a11y",
         "nextjs",
@@ -64,7 +55,6 @@
         "react-perf/jsx-no-new-object-as-prop": "off",
         "react/forbid-component-props": "off",
         "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
-        "react/jsx-max-depth": "off",
         "react/react-compiler": "off",
         "react/react-in-jsx-scope": "off",
         "sort-imports": "off",
