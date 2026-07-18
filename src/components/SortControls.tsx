@@ -1,32 +1,47 @@
+import {
+    ArrowDown,
+    ArrowUp,
+    Book,
+    Calendar,
+    ChevronDown,
+    User,
+    type LucideIcon,
+} from 'lucide-react';
 import { useEffect, useId, useRef, useState } from 'react';
-import { Icon } from './Icon';
 
 export type SortField = 'title' | 'author' | 'published';
 export type SortDirection = 'asc' | 'desc';
+export type TitleLanguage = 'en' | 'fi';
 
 interface SortControlsProps {
     field: SortField;
     direction: SortDirection;
+    titleLanguage: TitleLanguage;
     onFieldChange: (field: SortField) => void;
     onDirectionChange: (direction: SortDirection) => void;
+    onTitleLanguageChange: (language: TitleLanguage) => void;
 }
 
-const SORT_FIELDS: { value: SortField; icon: string }[] = [
-    { value: 'title', icon: 'book-icon' },
-    { value: 'author', icon: 'author-icon' },
-    { value: 'published', icon: 'calendar-icon' },
+const SORT_FIELDS: { value: SortField; icon: LucideIcon }[] = [
+    { value: 'title', icon: Book },
+    { value: 'author', icon: User },
+    { value: 'published', icon: Calendar },
 ];
 
 export function SortControls({
     field,
     direction,
+    titleLanguage,
     onFieldChange,
     onDirectionChange,
+    onTitleLanguageChange,
 }: SortControlsProps) {
     const [open, setOpen] = useState(false);
     const rootRef = useRef<HTMLDivElement>(null);
     const listId = useId();
     const selected = SORT_FIELDS.find((option) => option.value === field) ?? SORT_FIELDS[0];
+    const SelectedIcon = selected.icon;
+    const DirectionIcon = direction === 'asc' ? ArrowUp : ArrowDown;
 
     useEffect(() => {
         if (!open) {
@@ -70,13 +85,13 @@ export function SortControls({
                         setOpen((current) => !current);
                     }}
                 >
-                    <Icon
-                        id={selected.icon}
+                    <SelectedIcon
                         className='sort-controls__icon'
+                        aria-hidden='true'
                     />
-                    <Icon
-                        id='chevron-down-icon'
+                    <ChevronDown
                         className='sort-controls__chevron'
+                        aria-hidden='true'
                     />
                 </button>
 
@@ -86,25 +101,29 @@ export function SortControls({
                         className='sort-controls__menu'
                         role='listbox'
                     >
-                        {SORT_FIELDS.map((option) => (
-                            <li key={option.value}>
-                                <button
-                                    type='button'
-                                    role='option'
-                                    aria-selected={field === option.value}
-                                    className='sort-controls__option'
-                                    onClick={() => {
-                                        onFieldChange(option.value);
-                                        setOpen(false);
-                                    }}
-                                >
-                                    <Icon
-                                        id={option.icon}
-                                        className='sort-controls__icon'
-                                    />
-                                </button>
-                            </li>
-                        ))}
+                        {SORT_FIELDS.map((option) => {
+                            const OptionIcon = option.icon;
+
+                            return (
+                                <li key={option.value}>
+                                    <button
+                                        type='button'
+                                        role='option'
+                                        aria-selected={field === option.value}
+                                        className='sort-controls__option'
+                                        onClick={() => {
+                                            onFieldChange(option.value);
+                                            setOpen(false);
+                                        }}
+                                    >
+                                        <OptionIcon
+                                            className='sort-controls__icon'
+                                            aria-hidden='true'
+                                        />
+                                    </button>
+                                </li>
+                            );
+                        })}
                     </ul>
                 )}
             </div>
@@ -117,10 +136,21 @@ export function SortControls({
                     onDirectionChange(direction === 'asc' ? 'desc' : 'asc');
                 }}
             >
-                <Icon
-                    id={direction === 'asc' ? 'sort-asc-icon' : 'sort-desc-icon'}
+                <DirectionIcon
                     className='sort-controls__icon'
+                    aria-hidden='true'
                 />
+            </button>
+
+            <button
+                type='button'
+                className='sort-controls__language'
+                aria-label={titleLanguage === 'en' ? 'Show Finnish titles' : 'Show English titles'}
+                onClick={() => {
+                    onTitleLanguageChange(titleLanguage === 'en' ? 'fi' : 'en');
+                }}
+            >
+                {titleLanguage.toUpperCase()}
             </button>
         </div>
     );

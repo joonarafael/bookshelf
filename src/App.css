@@ -53,7 +53,14 @@
     width: 20px;
     height: 20px;
     flex-shrink: 0;
-    color: var(--accent);
+}
+
+.book-card__status--read {
+    color: #8ecfaa;
+}
+
+.book-card__status--unread {
+    color: #f0b27a;
 }
 
 .book-card__meta {
@@ -97,6 +104,7 @@
 
 .sort-controls__trigger,
 .sort-controls__direction,
+.sort-controls__language,
 .sort-controls__option {
     display: inline-flex;
     align-items: center;
@@ -131,6 +139,13 @@
 .sort-controls__direction[aria-pressed='true'] {
     border-color: var(--accent-border);
     background: var(--accent-bg);
+}
+
+.sort-controls__language {
+    min-width: 52px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
 }
 
 .sort-controls__menu {
