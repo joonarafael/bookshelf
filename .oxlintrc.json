@@ -62,7 +62,6 @@
         "typescript/no-require-imports": "off",
         "typescript/no-var-requires": "off",
         "typescript/require-await": "off",
-        "unicorn/filename-case": "off",
         "unicorn/import-style": "off",
         "unicorn/number-literal-case": "off",
         "unicorn/prefer-module": "off",

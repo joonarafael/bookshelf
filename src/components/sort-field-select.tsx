@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react';
-import type { SortField } from '../sortTypes';
+import type { SortField } from '../sort-types';
 
 interface SortFieldSelectProps {
     field: SortField;

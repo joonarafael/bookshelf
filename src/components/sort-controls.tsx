@@ -1,7 +1,7 @@
 import { ArrowDown, ArrowUp } from 'lucide-react';
 import type { ReactElement } from 'react';
-import type { SortDirection, SortField, TitleLanguage } from '../sortTypes';
-import { SortFieldSelect } from './SortFieldSelect';
+import type { SortDirection, SortField, TitleLanguage } from '../sort-types';
+import { SortFieldSelect } from './sort-field-select';
 
 interface SortControlsProps {
     direction: SortDirection;
@@ -57,4 +57,4 @@ export const SortControls = ({
     );
 };
 
-export type { SortDirection, SortField, TitleLanguage } from '../sortTypes';
+export type { SortDirection, SortField, TitleLanguage } from '../sort-types';

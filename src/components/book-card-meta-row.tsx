@@ -1,6 +1,6 @@
 import type { LucideIcon } from 'lucide-react';
 import type { ReactElement } from 'react';
-import { BookCardMetaTerm } from './BookCardMetaTerm';
+import { BookCardMetaTerm } from './book-card-meta-term';
 
 interface BookCardMetaRowProps {
     icon: LucideIcon;

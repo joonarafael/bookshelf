@@ -1,11 +1,11 @@
 import { useMemo, useState } from 'react';
 import type { ReactElement } from 'react';
 import { BOOKS } from './books';
-import { BookList } from './components/BookList';
-import { SortControls } from './components/SortControls';
-import type { SortDirection, SortField, TitleLanguage } from './sortTypes';
-import { sortBooks } from './sortBooks';
-import './App.css';
+import { BookList } from './components/book-list';
+import { SortControls } from './components/sort-controls';
+import type { SortDirection, SortField, TitleLanguage } from './sort-types';
+import { sortBooks } from './sort-books';
+import './app.css';
 
 export const App = (): ReactElement => {
     const [sortField, setSortField] = useState<SortField>('title');

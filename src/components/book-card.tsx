@@ -1,8 +1,8 @@
 import { BookOpen, BookOpenCheck, Calendar, User } from 'lucide-react';
 import type { ReactElement } from 'react';
 import type { Book } from '../books';
-import type { TitleLanguage } from '../sortTypes';
-import { BookCardMetaRow } from './BookCardMetaRow';
+import type { TitleLanguage } from '../sort-types';
+import { BookCardMetaRow } from './book-card-meta-row';
 
 interface BookCardProps {
     book: Book;

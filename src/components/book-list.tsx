@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react';
 import type { Book } from '../books';
-import type { TitleLanguage } from '../sortTypes';
-import { BookListItem } from './BookListItem';
+import type { TitleLanguage } from '../sort-types';
+import { BookListItem } from './book-list-item';
 
 interface BookListProps {
     books: Book[];

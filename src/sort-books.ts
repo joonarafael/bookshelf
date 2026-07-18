@@ -1,5 +1,5 @@
 import type { Book } from './books';
-import type { SortDirection, SortField, TitleLanguage } from './sortTypes';
+import type { SortDirection, SortField, TitleLanguage } from './sort-types';
 
 interface SortBooksOptions {
     books: Book[];
