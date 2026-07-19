@@ -131,6 +131,49 @@
     line-height: 1.2;
 }
 
+.book-card__actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.book-card__action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+
+    &:hover {
+        color: var(--text-h);
+        background: var(--accent-bg);
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+    }
+}
+
+.book-card__action-icon {
+    width: 18px;
+    height: 18px;
+    display: block;
+}
+
+.book-card__additional-info {
+    margin: 0;
+    color: var(--text-h);
+    line-height: 1.5;
+}
+
 .book-card__status {
     width: 20px;
     height: 20px;

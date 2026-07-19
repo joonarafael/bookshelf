@@ -6,6 +6,10 @@ export interface Book {
     author: string;
     published: number | '-';
     read: boolean;
+    additional_info?: {
+        en: string;
+        fi: string;
+    };
 }
 
 export const BOOKS: Book[] = [
@@ -31,7 +35,7 @@ export const BOOKS: Book[] = [
         title_fi: 'Robinson Crusoe',
     },
     {
-        author: '	Fyodor Dostoevsky',
+        author: 'Fyodor Dostoevsky',
         published: 1880,
         read: true,
         title_en: 'The Brothers Karamazov',
@@ -67,7 +71,7 @@ export const BOOKS: Book[] = [
     },
     { author: 'George Orwell', published: 1949, read: true, title_en: '1984', title_fi: '1984' },
     {
-        author: 'yval Noah Harari',
+        author: 'Yuval Noah Harari',
         published: 2014,
         read: true,
         title_en: 'Sapiens: A Brief History of Humankind',
@@ -91,22 +95,22 @@ export const BOOKS: Book[] = [
         author: 'J.R.R. Tolkien',
         published: 1954,
         read: true,
-        title_en: 'The Lord of the Rings',
-        title_fi: 'Taru sormusten herrasta',
+        title_en: 'The Lord of the Rings (Series)',
+        title_fi: 'Taru sormusten herrasta (Sarja)',
     },
     {
         author: 'J.K. Rowling',
         published: 1997,
         read: true,
-        title_en: 'Harry Potter',
-        title_fi: 'Harry Potter',
+        title_en: 'Harry Potter (Series)',
+        title_fi: 'Harry Potter (Sarja)',
     },
     {
         author: 'C.S. Lewis',
         published: 1950,
         read: true,
-        title_en: 'The Chronicles of Narnia',
-        title_fi: 'Narnian tarinat',
+        title_en: 'The Chronicles of Narnia (Series)',
+        title_fi: 'Narnian tarinat (Sarja)',
     },
     {
         author: 'J.D. Salinger',
@@ -299,6 +303,10 @@ export const BOOKS: Book[] = [
         title_fi: 'Kirjoituksia kellarista',
     },
     {
+        additional_info: {
+            en: 'A Country Doctor, A Hunger Artist, A Report to an Academy, In the Penal Colony, The Bucket Rider, The Great Wall of China, The Hunter Gracchus, The Judgment, The Metamorphosis',
+            fi: 'Hiilisangolla ratsastaja, Kun Kiinan muuria rakennettiin, Maalaislääkäri, Metsästäjä Gracchus, Muodonmuutos, Nälkätaiteilija, Rangaistussiirtolassa, Selonteko akatemialle, Tuomio',
+        },
         author: 'Franz Kafka',
         published: '-',
         read: true,
@@ -522,6 +530,6 @@ export const BOOKS: Book[] = [
         published: 1864,
         read: false,
         title_en: 'Our Mutual Friend',
-        title_fi: '-',
+        title_fi: 'Our Mutual Friend',
     },
 ];
