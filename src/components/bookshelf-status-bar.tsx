@@ -61,13 +61,13 @@ const STATUS_TEMPLATES: Record<TitleLanguage, string> = {
     fi: 'Kirjat järjestetty {sortField} mukaan ({direction}); otsikot näytetään {titleLanguage}; listataan {readFilter} kirjat.',
 };
 
-const buildStatusText = (
-    language: TitleLanguage,
-    field: SortField,
-    direction: SortDirection,
-    titleLanguage: TitleLanguage,
-    readFilter: ReadFilter,
-): string =>
+const buildStatusText = ({
+    direction,
+    field,
+    language,
+    readFilter,
+    titleLanguage,
+}: BookshelfStatusBarProps & { language: TitleLanguage }): string =>
     STATUS_TEMPLATES[language]
         .replace('{sortField}', SORT_FIELD_LABELS[language][field])
         .replace('{direction}', DIRECTION_LABELS[language][direction])
@@ -80,17 +80,28 @@ export const BookshelfStatusBar = ({
     readFilter,
     titleLanguage,
 }: BookshelfStatusBarProps): ReactElement => {
-    const englishStatus = buildStatusText('en', field, direction, titleLanguage, readFilter);
-    const finnishStatus = buildStatusText('fi', field, direction, titleLanguage, readFilter);
+    const englishStatus = buildStatusText({
+        direction,
+        field,
+        language: 'en',
+        readFilter,
+        titleLanguage,
+    });
+    const finnishStatus = buildStatusText({
+        direction,
+        field,
+        language: 'fi',
+        readFilter,
+        titleLanguage,
+    });
 
     return (
-        <div
+        <output
             className='bookshelf__status-bar'
-            role='status'
             aria-live='polite'
         >
-            <p className='bookshelf__status-bar-line'>{englishStatus}</p>
-            <p className='bookshelf__status-bar-line'>{finnishStatus}</p>
-        </div>
+            <span className='bookshelf__status-bar-line'>{englishStatus}</span>
+            <span className='bookshelf__status-bar-line'>{finnishStatus}</span>
+        </output>
     );
 };

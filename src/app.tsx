@@ -22,23 +22,43 @@ const filterBooksByReadStatus = (books: typeof BOOKS, readFilter: ReadFilter): t
     return books;
 };
 
+const useVisibleBooks = ({
+    direction,
+    field,
+    readFilter,
+    searchQuery,
+    titleLanguage,
+}: {
+    direction: SortDirection;
+    field: SortField;
+    readFilter: ReadFilter;
+    searchQuery: string;
+    titleLanguage: TitleLanguage;
+}): typeof BOOKS =>
+    useMemo(
+        () =>
+            sortBooks({
+                books: filterBooksBySearch(filterBooksByReadStatus(BOOKS, readFilter), searchQuery),
+                direction,
+                field,
+                titleLanguage,
+            }),
+        [direction, field, readFilter, searchQuery, titleLanguage],
+    );
+
 export const App = (): ReactElement => {
     const [sortField, setSortField] = useState<SortField>('title');
     const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
     const [titleLanguage, setTitleLanguage] = useState<TitleLanguage>('en');
     const [readFilter, setReadFilter] = useState<ReadFilter>('all');
     const [searchQuery, setSearchQuery] = useState('');
-
-    const books = useMemo(
-        () =>
-            sortBooks({
-                books: filterBooksBySearch(filterBooksByReadStatus(BOOKS, readFilter), searchQuery),
-                direction: sortDirection,
-                field: sortField,
-                titleLanguage,
-            }),
-        [readFilter, searchQuery, sortField, sortDirection, titleLanguage],
-    );
+    const books = useVisibleBooks({
+        direction: sortDirection,
+        field: sortField,
+        readFilter,
+        searchQuery,
+        titleLanguage,
+    });
 
     return (
         <main className='bookshelf'>
