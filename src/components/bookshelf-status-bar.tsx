@@ -46,8 +46,8 @@ const TITLE_LANGUAGE_LABELS: Record<TitleLanguage, Record<TitleLanguage, string>
 const READ_FILTER_LABELS: Record<TitleLanguage, Record<ReadFilter, string>> = {
     en: {
         all: 'both read and unread',
-        read: 'read only',
-        unread: 'unread only',
+        read: 'only read',
+        unread: 'only unread',
     },
     fi: {
         all: 'sekä luetut että lukemattomat',
