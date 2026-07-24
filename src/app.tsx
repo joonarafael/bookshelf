@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import type { ReactElement } from 'react';
 import { BOOKS } from './books';
 import { BookList } from './components/book-list';
+import { BookshelfStatusBar } from './components/bookshelf-status-bar';
 import { SearchBar } from './components/search-bar';
 import { SortControls } from './components/sort-controls';
 import { filterBooksBySearch } from './filter-books-by-search';
@@ -58,6 +59,13 @@ export const App = (): ReactElement => {
                     onQueryChange={setSearchQuery}
                 />
             </header>
+
+            <BookshelfStatusBar
+                direction={sortDirection}
+                field={sortField}
+                readFilter={readFilter}
+                titleLanguage={titleLanguage}
+            />
 
             <BookList
                 books={books}
