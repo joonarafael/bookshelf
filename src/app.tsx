@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import type { ReactElement } from 'react';
 import { BOOKS } from './books';
 import { BookList } from './components/book-list';
+import { BookshelfStatusBar } from './components/bookshelf-status-bar';
 import { SearchBar } from './components/search-bar';
 import { SortControls } from './components/sort-controls';
 import { filterBooksBySearch } from './filter-books-by-search';
@@ -21,23 +22,43 @@ const filterBooksByReadStatus = (books: typeof BOOKS, readFilter: ReadFilter): t
     return books;
 };
 
+const useVisibleBooks = ({
+    direction,
+    field,
+    readFilter,
+    searchQuery,
+    titleLanguage,
+}: {
+    direction: SortDirection;
+    field: SortField;
+    readFilter: ReadFilter;
+    searchQuery: string;
+    titleLanguage: TitleLanguage;
+}): typeof BOOKS =>
+    useMemo(
+        () =>
+            sortBooks({
+                books: filterBooksBySearch(filterBooksByReadStatus(BOOKS, readFilter), searchQuery),
+                direction,
+                field,
+                titleLanguage,
+            }),
+        [direction, field, readFilter, searchQuery, titleLanguage],
+    );
+
 export const App = (): ReactElement => {
     const [sortField, setSortField] = useState<SortField>('title');
     const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
     const [titleLanguage, setTitleLanguage] = useState<TitleLanguage>('en');
     const [readFilter, setReadFilter] = useState<ReadFilter>('all');
     const [searchQuery, setSearchQuery] = useState('');
-
-    const books = useMemo(
-        () =>
-            sortBooks({
-                books: filterBooksBySearch(filterBooksByReadStatus(BOOKS, readFilter), searchQuery),
-                direction: sortDirection,
-                field: sortField,
-                titleLanguage,
-            }),
-        [readFilter, searchQuery, sortField, sortDirection, titleLanguage],
-    );
+    const books = useVisibleBooks({
+        direction: sortDirection,
+        field: sortField,
+        readFilter,
+        searchQuery,
+        titleLanguage,
+    });
 
     return (
         <main className='bookshelf'>
@@ -58,6 +79,13 @@ export const App = (): ReactElement => {
                     onQueryChange={setSearchQuery}
                 />
             </header>
+
+            <BookshelfStatusBar
+                direction={sortDirection}
+                field={sortField}
+                readFilter={readFilter}
+                titleLanguage={titleLanguage}
+            />
 
             <BookList
                 books={books}
