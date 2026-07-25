@@ -570,7 +570,7 @@ export const BOOKS: Book[] = [
     {
         author: 'Trevor Noah',
         published: 2016,
-        read: false,
+        read: true,
         title_en: 'Born a Crime: Stories from a South African Childhood',
         title_fi: 'Laiton lapsi - värikäs nuoruuteni Etelä-Afrikassa',
     },
