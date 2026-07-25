@@ -567,4 +567,11 @@ export const BOOKS: Book[] = [
         title_en: 'The Myth of Sisyphus',
         title_fi: 'Sisyfoksen myytti',
     },
+    {
+        author: 'Trevor Noah',
+        published: 2016,
+        read: false,
+        title_en: 'Born a Crime: Stories from a South African Childhood',
+        title_fi: 'Laiton lapsi - värikäs nuoruuteni Etelä-Afrikassa',
+    },
 ];
