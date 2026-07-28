@@ -575,7 +575,7 @@ export const BOOKS: Book[] = [
         title_fi: 'Laiton lapsi - värikäs nuoruuteni Etelä-Afrikassa',
     },
     {
-        author: 'Miika Nousiainene',
+        author: 'Miika Nousiainen',
         published: 2016,
         read: true,
         title_en: 'Juurihoito (Finnish)',
