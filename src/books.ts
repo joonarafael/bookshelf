@@ -243,7 +243,7 @@ export const BOOKS: Book[] = [
         author: 'Kari Hotakainen',
         published: 2002,
         read: true,
-        title_en: 'Juoksuhaudantie (Finnish)',
+        title_en: 'Juoksuhaudantie',
         title_fi: 'Juoksuhaudantie',
     },
     {
@@ -458,9 +458,9 @@ export const BOOKS: Book[] = [
     {
         author: 'Albert Camus',
         published: 1942,
-        read: false,
+        read: true,
         title_en: 'The Stranger',
-        title_fi: 'Sivullinen',
+        title_fi: 'Maanpako ja valtakunta; Sivullinen',
     },
     {
         author: 'Aldous Huxley',
@@ -530,7 +530,7 @@ export const BOOKS: Book[] = [
         published: 1864,
         read: false,
         title_en: 'Our Mutual Friend',
-        title_fi: 'Our Mutual Friend (Englanniksi)',
+        title_fi: 'Our Mutual Friend',
     },
     {
         author: 'Friedrich Nietzsche',
@@ -578,7 +578,7 @@ export const BOOKS: Book[] = [
         author: 'Miika Nousiainen',
         published: 2016,
         read: true,
-        title_en: 'Juurihoito (Finnish)',
+        title_en: 'Juurihoito',
         title_fi: 'Juurihoito',
     },
     {
