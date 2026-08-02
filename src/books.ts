@@ -456,11 +456,22 @@ export const BOOKS: Book[] = [
         title_fi: 'Humiseva harju',
     },
     {
+        additional_info: {
+            en: 'Jonas or the Artist at Work, The Adulterous Woman, The Growing Stone, The Guest, The Renegade or a Confused Spirit, The Silent Men',
+            fi: 'Avionrikkojatar, Jonas eli taiteilija työssä, Luopio eli hourupää, Kasvava kivi, Mykät, Yövieras',
+        },
+        author: 'Albert Camus',
+        published: 1957,
+        read: true,
+        title_en: 'Exile and the Kingdom',
+        title_fi: 'Maanpako ja valtakunta',
+    },
+    {
         author: 'Albert Camus',
         published: 1942,
         read: true,
         title_en: 'The Stranger',
-        title_fi: 'Maanpako ja valtakunta; Sivullinen',
+        title_fi: 'Sivullinen',
     },
     {
         author: 'Aldous Huxley',
