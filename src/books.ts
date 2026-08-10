@@ -490,7 +490,7 @@ export const BOOKS: Book[] = [
     {
         author: 'Aleksandr Puškin',
         published: 1836,
-        read: false,
+        read: true,
         title_en: "The Captain's Daughter",
         title_fi: 'Kapteenin tytär',
     },
@@ -605,5 +605,12 @@ export const BOOKS: Book[] = [
         read: true,
         title_en: 'By Its Cover',
         title_fi: 'Ansionsa mukaan',
+    },
+    {
+        author: 'Alexandre Dumas',
+        published: 1845,
+        read: false,
+        title_en: 'Twenty Years After',
+        title_fi: 'Myladyn poika eli kaksikymmentä vuotta jälkeenpäin',
     },
 ];
