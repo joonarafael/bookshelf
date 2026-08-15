@@ -483,7 +483,7 @@ export const BOOKS: Book[] = [
     {
         author: 'Jane Austen',
         published: 1811,
-        read: false,
+        read: true,
         title_en: 'Sense and Sensibility',
         title_fi: 'Järki ja tunteet',
     },
@@ -553,7 +553,7 @@ export const BOOKS: Book[] = [
     {
         author: 'Friedrich Nietzsche',
         published: 1889,
-        read: false,
+        read: true,
         title_en: 'Twilight of the Idols',
         title_fi: 'Epäjumalten hämärä',
     },
@@ -612,5 +612,12 @@ export const BOOKS: Book[] = [
         read: false,
         title_en: 'Twenty Years After',
         title_fi: 'Myladyn poika eli kaksikymmentä vuotta jälkeenpäin',
+    },
+    {
+        author: 'Jay Asher',
+        published: 2007,
+        read: true,
+        title_en: '13 Reasons Why',
+        title_fi: 'Kolmetoista syytä',
     },
 ];
