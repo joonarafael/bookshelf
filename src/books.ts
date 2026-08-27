@@ -476,7 +476,7 @@ export const BOOKS: Book[] = [
     {
         author: 'Aldous Huxley',
         published: 1932,
-        read: false,
+        read: true,
         title_en: 'Brave New World',
         title_fi: 'Uljas uusi maailma',
     },
