@@ -620,4 +620,18 @@ export const BOOKS: Book[] = [
         title_en: '13 Reasons Why',
         title_fi: 'Kolmetoista syytä',
     },
+    {
+        author: 'Kari Hotakainen',
+        published: 2018,
+        read: true,
+        title_en: 'The Unknown Kimi Raikkonen',
+        title_fi: 'Tuntematon Kimi Räikkönen',
+    },
+    {
+        author: 'Michael Crichton',
+        published: 1999,
+        read: true,
+        title_en: 'Timeline',
+        title_fi: 'Aikamatka',
+    },
 ];
