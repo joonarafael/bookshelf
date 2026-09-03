@@ -634,4 +634,18 @@ export const BOOKS: Book[] = [
         title_en: 'Timeline',
         title_fi: 'Aikamatka',
     },
+    {
+        author: 'Jo Nesbø',
+        published: 2019,
+        read: true,
+        title_en: 'Knife',
+        title_fi: 'Veitsi',
+    },
+    {
+        author: 'Jonas Jonasson',
+        published: 2009,
+        read: true,
+        title_en: 'The Hundred-Year-Old Man Who Climbed Out of the Window and Disappeared',
+        title_fi: 'Satavuotias joka karkasi ikkunasta ja katosi',
+    },
 ];
