@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import type { ReactElement } from 'react';
 import { BOOKS } from './books';
 import { BookList } from './components/book-list';
+import { BookshelfFooter } from './components/bookshelf-footer';
 import { BookshelfStatusBar } from './components/bookshelf-status-bar';
 import { SearchBar } from './components/search-bar';
 import { SortControls } from './components/sort-controls';
@@ -91,6 +92,8 @@ export const App = (): ReactElement => {
                 books={books}
                 titleLanguage={titleLanguage}
             />
+
+            <BookshelfFooter />
         </main>
     );
 };
