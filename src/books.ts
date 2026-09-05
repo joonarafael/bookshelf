@@ -686,7 +686,7 @@ export const BOOKS: Book[] = [
     {
         author: 'John Irving',
         published: 1989,
-        read: false,
+        read: true,
         title_en: 'A Prayer for Owen Meany',
         title_fi: 'Ystäväni Owen Meany',
     },
