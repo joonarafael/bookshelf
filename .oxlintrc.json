@@ -16,8 +16,11 @@
     },
     "overrides": [
         {
-            "files": ["vite.config.ts"],
-            "rules": { "import/no-default-export": "off" }
+            "files": ["vite.config.ts", "books-from-yaml-plugin.ts"],
+            "rules": {
+                "import/no-default-export": "off",
+                "import/no-nodejs-modules": "off"
+            }
         }
     ],
     "plugins": [
