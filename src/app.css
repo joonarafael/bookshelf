@@ -11,10 +11,24 @@
     }
 }
 
+.bookshelf__title {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-h);
+
+    @media (max-width: 768px) {
+        font-size: 22px;
+    }
+}
+
 .bookshelf__header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     gap: 16px;
     flex-wrap: wrap;
 }
@@ -27,6 +41,12 @@
     flex: 1 1 280px;
     max-width: 360px;
     margin-left: auto;
+
+    @media (max-width: 640px) {
+        flex-basis: 100%;
+        max-width: none;
+        margin-left: 0;
+    }
 }
 
 .search-bar__icon {
@@ -147,6 +167,7 @@
 
     &:hover {
         color: var(--text-h);
+        text-decoration: underline;
     }
 
     &:focus-visible {
