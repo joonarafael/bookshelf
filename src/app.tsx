@@ -11,7 +11,7 @@ import { useVisibleBooks } from './use-visible-books';
 import './app.css';
 
 export const App = (): ReactElement => {
-    const [sortField, setSortField] = useState<SortField>('title');
+    const [sortField, setSortField] = useState<SortField>('author');
     const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
     const [titleLanguage, setTitleLanguage] = useState<TitleLanguage>('en');
     const [readFilter, setReadFilter] = useState<ReadFilter>('all');
