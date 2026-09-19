@@ -200,14 +200,23 @@
     box-sizing: border-box;
 }
 
+.book-card--read {
+    background: var(--code-bg-read);
+    border-color: var(--border-read);
+}
+
 .book-card__header {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: space-between;
     gap: 12px;
 }
 
-.book-card__title {
+.book-card__title-container {
     flex: 1;
+}
+
+.book-card__title {
     margin: 0;
     font-size: 20px;
     line-height: 1.2;
@@ -216,6 +225,7 @@
 .book-card__actions {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 4px;
     flex-shrink: 0;
 }
@@ -256,10 +266,15 @@
     line-height: 1.5;
 }
 
-.book-card__status {
+.book-card__status-container {
     width: 20px;
     height: 20px;
     flex-shrink: 0;
+}
+
+.book-card__status {
+    width: 100%;
+    height: 100%;
 }
 
 .book-card__status--read {

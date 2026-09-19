@@ -5,6 +5,7 @@ import type { TitleLanguage } from '../sort-types';
 import { hasBookAdditionalInfo } from '../has-book-additional-info';
 import { BookCardHeaderActions } from './book-card-header-actions';
 import { BookCardMetaRow } from './book-card-meta-row';
+import { BookCardTitle } from './book-card-title';
 
 interface BookCardNormalViewProps {
     book: Book;
@@ -24,9 +25,9 @@ export const BookCardNormalView = ({
     const hasAdditionalInfo = hasBookAdditionalInfo(additionalInfo);
 
     return (
-        <article className='book-card'>
+        <article className={`book-card${book.read ? ' book-card--read' : ''}`}>
             <header className='book-card__header'>
-                <h2 className='book-card__title'>{title}</h2>
+                <BookCardTitle title={title} />
                 <BookCardHeaderActions
                     hasAdditionalInfo={hasAdditionalInfo}
                     read={book.read}
@@ -38,10 +39,14 @@ export const BookCardNormalView = ({
             <dl className='book-card__meta'>
                 <BookCardMetaRow
                     icon={User}
+                    titleLanguage={titleLanguage}
+                    type='author'
                     value={book.author}
                 />
                 <BookCardMetaRow
                     icon={Calendar}
+                    titleLanguage={titleLanguage}
+                    type='published'
                     value={published}
                 />
             </dl>

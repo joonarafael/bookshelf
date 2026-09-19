@@ -12,15 +12,17 @@ export const BookCardActionButton = ({
     icon: Icon,
     onClick,
 }: BookCardActionButtonProps): ReactElement => (
-    <button
-        type='button'
-        className='book-card__action'
-        aria-label={ariaLabel}
-        onClick={onClick}
-    >
-        <Icon
-            className='book-card__action-icon'
-            aria-hidden='true'
-        />
-    </button>
+    <div title={ariaLabel}>
+        <button
+            type='button'
+            className='book-card__action'
+            aria-label={ariaLabel}
+            onClick={onClick}
+        >
+            <Icon
+                className='book-card__action-icon'
+                aria-hidden='true'
+            />
+        </button>
+    </div>
 );

@@ -6,6 +6,7 @@ import { BookCardActionButton } from './book-card-action-button';
 interface BookCardAdditionalInfoViewProps {
     additionalInfo: string;
     onBack: () => void;
+    read: boolean;
     titleLanguage: TitleLanguage;
 }
 
@@ -17,9 +18,10 @@ const BACK_LABELS: Record<TitleLanguage, string> = {
 export const BookCardAdditionalInfoView = ({
     additionalInfo,
     onBack,
+    read,
     titleLanguage,
 }: BookCardAdditionalInfoViewProps): ReactElement => (
-    <article className='book-card'>
+    <article className={`book-card${read ? ' book-card--read' : ''}`}>
         <header className='book-card__header'>
             <BookCardActionButton
                 ariaLabel={BACK_LABELS[titleLanguage]}
