@@ -15,6 +15,16 @@ const INFO_LABELS: Record<TitleLanguage, string> = {
     fi: 'Näytä lisätiedot',
 };
 
+const STATUS_READ_LABELS: Record<TitleLanguage, string> = {
+    en: 'Read',
+    fi: 'Luettu',
+};
+
+const STATUS_UNREAD_LABELS: Record<TitleLanguage, string> = {
+    en: 'Unread',
+    fi: 'Lukematon',
+};
+
 export const BookCardHeaderActions = ({
     hasAdditionalInfo,
     onShowAdditionalInfo,
@@ -32,10 +42,17 @@ export const BookCardHeaderActions = ({
                     onClick={onShowAdditionalInfo}
                 />
             )}
-            <StatusIcon
-                className={`book-card__status ${read ? 'book-card__status--read' : 'book-card__status--unread'}`}
-                aria-hidden='true'
-            />
+            <div
+                className='book-card__status-container'
+                title={
+                    read ? STATUS_READ_LABELS[titleLanguage] : STATUS_UNREAD_LABELS[titleLanguage]
+                }
+            >
+                <StatusIcon
+                    className={`book-card__status ${read ? 'book-card__status--read' : 'book-card__status--unread'}`}
+                    aria-hidden='true'
+                />
+            </div>
         </div>
     );
 };

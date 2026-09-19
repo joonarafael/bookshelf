@@ -21,6 +21,7 @@ export const BookCard = ({ book, titleLanguage }: BookCardProps): ReactElement =
         return (
             <BookCardAdditionalInfoView
                 additionalInfo={additionalInfo}
+                read={book.read}
                 titleLanguage={titleLanguage}
                 onBack={() => {
                     setShowingAdditionalInfo(false);
