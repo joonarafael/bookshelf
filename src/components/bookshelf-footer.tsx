@@ -3,6 +3,8 @@ import type { ReactElement } from 'react';
 import type { TitleLanguage } from '../sort-types';
 
 const BOOKS_YAML_HREF = `${import.meta.env.BASE_URL}books.yaml`;
+const GITHUB_HREF = 'https://github.com/joonarafael/bookshelf';
+const GITHUB_LINK_LABEL = 'GitHub';
 
 const RAW_LINK_LABELS: Record<TitleLanguage, string> = {
     en: 'View raw',
@@ -29,6 +31,18 @@ export const BookshelfFooter = (): ReactElement => (
             >
                 {RAW_LINK_LABELS.fi}
             </span>
+            <ArrowRight
+                className='bookshelf__raw-link-icon'
+                aria-hidden='true'
+            />
+        </a>
+        <a
+            className='bookshelf__raw-link'
+            href={GITHUB_HREF}
+            rel='noreferrer'
+            target='_blank'
+        >
+            <span className='bookshelf__raw-link-label'>{GITHUB_LINK_LABEL}</span>
             <ArrowRight
                 className='bookshelf__raw-link-icon'
                 aria-hidden='true'
