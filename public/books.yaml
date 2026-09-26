@@ -573,7 +573,7 @@
   title_fi: Linna
   author: Franz Kafka
   published: 1926
-  read: false
+  read: true
 - title_en: The Colour of Magic
   title_fi: Magian väri
   author: Terry Pratchett
@@ -584,3 +584,8 @@
   author: Ernest Cline
   published: 2011
   read: true
+- title_en: The Hunchback of Notre Dame
+  title_fi: Pariisin Notre-Dame
+  author: Victor Hugo
+  published: 1831
+  read: false
