@@ -63,16 +63,22 @@
   author: J.R.R. Tolkien
   published: 1954
   read: true
+  google_search_en: '"J.R.R. Tolkien" "The Lord of the Rings"'
+  google_search_fi: '"J.R.R. Tolkien" "Taru sormusten herrasta"'
 - title_en: Harry Potter (Series)
   title_fi: Harry Potter (Sarja)
   author: J.K. Rowling
   published: 1997
   read: true
+  google_search_en: '"J.K. Rowling" "Harry Potter"'
+  google_search_fi: '"J.K. Rowling" "Harry Potter"'
 - title_en: The Chronicles of Narnia (Series)
   title_fi: Narnian tarinat (Sarja)
   author: C.S. Lewis
   published: 1950
   read: true
+  google_search_en: '"C.S. Lewis" "The Chronicles of Narnia"'
+  google_search_fi: '"C.S. Lewis" "Narnian tarinat"'
 - title_en: The Catcher in the Rye
   title_fi: Sieppari ruispellossa
   author: J.D. Salinger
@@ -218,6 +224,8 @@
   author: Franz Kafka
   published: '-'
   read: true
+  google_search_en: '"Franz Kafka" short stories'
+  google_search_fi: '"Franz Kafka" novellit'
   additional_info:
       en: A Country Doctor, A Hunger Artist, A Report to an Academy, In the Penal Colony, The Bucket Rider, The Great Wall of China, The Hunter Gracchus, The Judgment, The Metamorphosis
       fi: Hiilisangolla ratsastaja, Kun Kiinan muuria rakennettiin, Maalaislääkäri, Metsästäjä Gracchus, Muodonmuutos, Nälkätaiteilija, Rangaistussiirtolassa, Selonteko akatemialle, Tuomio
@@ -286,6 +294,8 @@
   author: Franz Kafka
   published: 1927
   read: true
+  google_search_en: '"Franz Kafka" "The Man Who Disappeared"'
+  google_search_fi: '"Franz Kafka" "Mies joka katosi"'
 - title_en: Persuasion
   title_fi: Viisasteleva sydän
   author: Jane Austen
@@ -316,11 +326,15 @@
   author: Gabriel García Márquezin
   published: 1967
   read: true
+  google_search_en: '"Gabriel García Márquez" "One Hundred Years of Solitude"'
+  google_search_fi: '"Gabriel García Márquez" "Sadan vuoden yksinäisyys"'
 - title_en: Middlemarch, A Study of Provincial Life
   title_fi: Middlemarch
   author: George Eliot (Mary Ann Evans)
   published: 1871
   read: false
+  google_search_en: '"George Eliot" Middlemarch'
+  google_search_fi: '"George Eliot" Middlemarch'
 - title_en: Wuthering Heights
   title_fi: Humiseva harju
   author: Emily Brontë
@@ -554,6 +568,8 @@
   author: James Joyce
   published: 1922
   read: false
+  google_search_en: '"James Joyce" Ulysses'
+  google_search_fi: '"James Joyce" Ulysses'
 - title_en: The God of Small Things
   title_fi: Joutavuuksien jumala
   author: Arundhati Roy
@@ -569,6 +585,8 @@
   author: Marcel Proust
   published: 1913
   read: false
+  google_search_en: '"Marcel Proust" "In Search of Lost Time"'
+  google_search_fi: '"Marcel Proust" "Kadonnutta aikaa etsimässä"'
 - title_en: The Castle
   title_fi: Linna
   author: Franz Kafka

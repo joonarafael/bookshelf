@@ -1,7 +1,9 @@
 import type { LucideIcon } from 'lucide-react';
 import type { ReactElement } from 'react';
-import { BookCardMetaTerm } from './book-card-meta-term';
 import type { TitleLanguage } from '../sort-types';
+import { splitAuthors } from '../split-authors';
+import { BookCardAuthorLinks } from './book-card-author-links';
+import { BookCardMetaTerm } from './book-card-meta-term';
 
 interface BookCardMetaRowProps {
     icon: LucideIcon;
@@ -25,16 +27,20 @@ export const BookCardMetaRow = ({
     value,
     type,
     titleLanguage,
-}: BookCardMetaRowProps): ReactElement => (
-    <div
-        className='book-card__meta-row'
-        title={
-            type === 'author'
-                ? AUTHOR_LABELS[titleLanguage].replace('<author>', value)
-                : PUBLISHED_LABELS[titleLanguage].replace('<year>', value)
-        }
-    >
-        <BookCardMetaTerm icon={icon} />
-        <dd>{value}</dd>
-    </div>
-);
+}: BookCardMetaRowProps): ReactElement => {
+    const authors = type === 'author' ? splitAuthors(value) : [];
+
+    return (
+        <div
+            className='book-card__meta-row'
+            title={
+                type === 'author'
+                    ? AUTHOR_LABELS[titleLanguage].replace('<author>', value)
+                    : PUBLISHED_LABELS[titleLanguage].replace('<year>', value)
+            }
+        >
+            <BookCardMetaTerm icon={icon} />
+            <dd>{authors.length > 0 ? <BookCardAuthorLinks authors={authors} /> : value}</dd>
+        </div>
+    );
+};
