@@ -8,4 +8,6 @@ export interface Book {
         en: string;
         fi: string;
     };
+    google_search_en?: string;
+    google_search_fi?: string;
 }

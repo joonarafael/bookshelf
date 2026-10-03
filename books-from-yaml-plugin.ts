@@ -13,14 +13,21 @@ const BookAdditionalInfoSchema = z.strictObject({
     fi: z.string().nonempty(),
 });
 
-const BookSchema = z.strictObject({
-    additional_info: BookAdditionalInfoSchema.optional(),
-    author: z.string().nonempty(),
-    published: z.union([z.int(), z.literal(UNKNOWN_VALUE)]),
-    read: z.boolean(),
-    title_en: z.string().nonempty(),
-    title_fi: z.string().nonempty(),
-});
+const BookSchema = z
+    .strictObject({
+        additional_info: BookAdditionalInfoSchema.optional(),
+        author: z.string().nonempty(),
+        google_search_en: z.string().nonempty().optional(),
+        google_search_fi: z.string().nonempty().optional(),
+        published: z.union([z.int(), z.literal(UNKNOWN_VALUE)]),
+        read: z.boolean(),
+        title_en: z.string().nonempty(),
+        title_fi: z.string().nonempty(),
+    })
+    .refine(
+        (book) => Boolean(book.google_search_en) === Boolean(book.google_search_fi),
+        'google_search_en and google_search_fi must both be present or both omitted',
+    );
 
 const BooksSchema = z.array(BookSchema);
 

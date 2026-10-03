@@ -1,8 +1,9 @@
 import { Calendar, User } from 'lucide-react';
 import type { ReactElement } from 'react';
 import type { Book } from '../books';
-import type { TitleLanguage } from '../sort-types';
+import { buildBookGoogleSearchUrl } from '../google-search-url';
 import { hasBookAdditionalInfo } from '../has-book-additional-info';
+import type { TitleLanguage } from '../sort-types';
 import { BookCardHeaderActions } from './book-card-header-actions';
 import { BookCardMetaRow } from './book-card-meta-row';
 import { BookCardTitle } from './book-card-title';
@@ -27,7 +28,10 @@ export const BookCardNormalView = ({
     return (
         <article className={`book-card${book.read ? ' book-card--read' : ''}`}>
             <header className='book-card__header'>
-                <BookCardTitle title={title} />
+                <BookCardTitle
+                    href={buildBookGoogleSearchUrl(book, titleLanguage)}
+                    title={title}
+                />
                 <BookCardHeaderActions
                     hasAdditionalInfo={hasAdditionalInfo}
                     read={book.read}
