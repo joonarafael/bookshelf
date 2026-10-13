@@ -377,7 +377,7 @@
   title_fi: Isät ja pojat
   author: Ivan Turgenev
   published: 1862
-  read: false
+  read: true
 - title_en: Little Women
   title_fi: Pikku naisia
   author: Louisa May Alcott
@@ -502,7 +502,7 @@
   title_fi: Tessin tarina
   author: Thomas Hardy
   published: 1891
-  read: false
+  read: true
 - title_en: A Prayer for Owen Meany
   title_fi: Ystäväni Owen Meany
   author: John Irving
