@@ -374,7 +374,7 @@
   published: 1840
   read: false
 - title_en: Fathers and Sons
-  title_fi: Isät ja pojat
+  title_fi: Isät ja lapset
   author: Ivan Turgenev
   published: 1862
   read: true
@@ -562,7 +562,7 @@
   title_fi: Parfyymi
   author: Patrick Süskind
   published: 1985
-  read: false
+  read: true
 - title_en: Ulysses
   title_fi: Ulysses (Odysseus)
   author: James Joyce
