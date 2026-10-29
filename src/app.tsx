@@ -1,11 +1,8 @@
 import { useState } from 'react';
 import type { ReactElement } from 'react';
-import { BookList } from './components/book-list';
 import { BookshelfFooter } from './components/bookshelf-footer';
-import { BookshelfStatusBar } from './components/bookshelf-status-bar';
+import { BookshelfGrid } from './components/bookshelf-grid';
 import { BookshelfTitle } from './components/bookshelf-title';
-import { SearchBar } from './components/search-bar';
-import { SortControls } from './components/sort-controls';
 import type { ReadFilter, SortDirection, SortField, TitleLanguage } from './sort-types';
 import { useVisibleBooks } from './use-visible-books';
 import './app.css';
@@ -26,36 +23,19 @@ export const App = (): ReactElement => {
     return (
         <main className='bookshelf'>
             <BookshelfTitle titleLanguage={titleLanguage} />
-            <header className='bookshelf__header'>
-                <SortControls
-                    direction={sortDirection}
-                    field={sortField}
-                    readFilter={readFilter}
-                    titleLanguage={titleLanguage}
-                    onDirectionChange={setSortDirection}
-                    onFieldChange={setSortField}
-                    onReadFilterChange={setReadFilter}
-                    onTitleLanguageChange={setTitleLanguage}
-                />
-
-                <SearchBar
-                    query={searchQuery}
-                    onQueryChange={setSearchQuery}
-                />
-            </header>
-
-            <BookshelfStatusBar
+            <BookshelfGrid
+                books={books}
                 direction={sortDirection}
                 field={sortField}
+                query={searchQuery}
                 readFilter={readFilter}
                 titleLanguage={titleLanguage}
+                onDirectionChange={setSortDirection}
+                onFieldChange={setSortField}
+                onQueryChange={setSearchQuery}
+                onReadFilterChange={setReadFilter}
+                onTitleLanguageChange={setTitleLanguage}
             />
-
-            <BookList
-                books={books}
-                titleLanguage={titleLanguage}
-            />
-
             <BookshelfFooter />
         </main>
     );
