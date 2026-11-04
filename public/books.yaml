@@ -452,7 +452,7 @@
   title_fi: Myladyn poika eli kaksikymmentä vuotta jälkeenpäin
   author: Alexandre Dumas
   published: 1845
-  read: false
+  read: true
 - title_en: 13 Reasons Why
   title_fi: Kolmetoista syytä
   author: Jay Asher
@@ -574,7 +574,7 @@
   title_fi: Joutavuuksien jumala
   author: Arundhati Roy
   published: 1997
-  read: false
+  read: true
 - title_en: Midnight's Children
   title_fi: Keskiyön lapset
   author: Salman Rushdie
